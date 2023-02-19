@@ -10,7 +10,7 @@ extern "C" {
 // ====================================================================================================
 #include <Arduino.h>
 #include "button.h"
-
+#include "led.h"
 // ====================================================================================================
 // Type definitions
 // ====================================================================================================
@@ -18,6 +18,10 @@ typedef struct
 {
     button_t aumentar;
     button_t disminuir;
+    led_t bit0;
+    led_t bit1;
+    led_t bit2;
+    led_t bit3;
 
 }contador_t;
 
@@ -26,15 +30,22 @@ typedef struct
 // Public function definitions
 // ====================================================================================================
 
-static void contador_init(contador_t * contador,button_t boton_aumentar, button_t boton_disminuir)
+static void contador_init
+(contador_t * contador,button_t boton_aumentar, button_t boton_disminuir,led_t led0,led_t led1,led_t led2,led_t led3)
 {
     contador -> aumentar = boton_aumentar;
     contador -> disminuir = boton_disminuir;
+    contador -> bit0 = led0;
+    contador -> bit1 = led1;
+    contador -> bit2 = led2;
+    contador -> bit3 = led3;
 }
 
 // ====================================================================================================
 // Public function prototypes
 // ====================================================================================================
+uint8_t contador_get_value(contador_t *contador);
+void contador_update_display(contador_t *contador);
 
 #ifdef __cplusplus
 }

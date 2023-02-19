@@ -1,5 +1,6 @@
 #include "button.h"
 #include "contador.h"
+#include "led.h"
 #include <Arduino.h>
 
 // ====================================================================================================
@@ -32,4 +33,21 @@ uint8_t contador_get_value(contador_t *contador)
 {
     contador_ajustar_valor(contador);
     return valor;
+}
+
+void contador_update_display(contador_t *contador)
+{
+    contador_ajustar_valor(contador);
+
+    if(((valor&0x08)>>3) == 0b0001) led_turn_on(&contador ->bit3);
+    else led_turn_off(&contador->bit3);
+
+    if(((valor&0x04)>>2) == 0b0001) led_turn_on(&contador ->bit2);
+    else led_turn_off(&contador->bit2);
+
+    if(((valor&0x02)>>1) == 0b0001) led_turn_on(&contador ->bit1);
+    else led_turn_off(&contador->bit1);
+
+    if(((valor&0x01)) == 0b0001) led_turn_on(&contador ->bit0);
+    else led_turn_off(&contador->bit0);
 }
