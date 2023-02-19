@@ -18,6 +18,8 @@ contador_t contador2;
 bool flag_cambio = true;
 bool flag_contador = false;
 
+void change_contadores();
+
 void setup()
 {
   led_init(&led1,33);
@@ -36,6 +38,14 @@ void setup()
 
 void loop()
 {
+  change_contadores();
+  if(flag_contador)contador_update_display(&contador1);
+  else contador_update_display(&contador2);
+
+}
+
+void change_contadores()
+{
 
   if(button_get_state(&boton3) & flag_cambio)
   {
@@ -45,7 +55,4 @@ void loop()
 
   if(!button_get_state(&boton3) & !flag_cambio) flag_cambio = true; 
 
-  if(flag_contador)contador_update_display(&contador1);
-  else contador_update_display(&contador2);
-  
 }
