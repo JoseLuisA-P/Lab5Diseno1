@@ -5,13 +5,6 @@
 // ====================================================================================================
 // Private variables
 // ====================================================================================================
-/*
-static long last_debounce_time = 0;
-static long debounce_delay = 50;
-static bool new_reading;
-static bool last_reading = false;
-static bool state;
-*/
 
 // ====================================================================================================
 // Private functions
@@ -40,4 +33,14 @@ bool button_get_state(button_t *boton)
 {   
     button_update(boton);
     return boton->state;
+}
+
+bool button_is_pressed(button_t *boton)
+{
+    return (button_get_state(boton) == true);
+}
+
+uint8_t button_return_pin(button_t *boton)
+{
+    return boton->pin;
 }

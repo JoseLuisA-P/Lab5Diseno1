@@ -42,6 +42,8 @@ static void button_init(button_t *button,uint8_t pinF)
 // Public function prototypes
 // ====================================================================================================
 bool button_get_state(button_t *boton);
+uint8_t button_return_pin(button_t *boton);
+bool button_is_pressed(button_t *boton);
 
 #ifdef __cplusplus
 }

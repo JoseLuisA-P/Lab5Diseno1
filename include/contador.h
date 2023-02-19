@@ -22,7 +22,10 @@ typedef struct
     led_t bit1;
     led_t bit2;
     led_t bit3;
-
+    bool last_reading_up;
+    bool last_reading_down;
+    uint8_t valor;
+    
 }contador_t;
 
 
@@ -39,6 +42,8 @@ static void contador_init
     contador -> bit1 = led1;
     contador -> bit2 = led2;
     contador -> bit3 = led3;
+    contador -> last_reading_up = false;
+    contador -> last_reading_down = false;
 }
 
 // ====================================================================================================
