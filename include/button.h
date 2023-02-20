@@ -16,11 +16,11 @@ extern "C" {
 typedef struct 
 {
     uint8_t pin;
-    long last_debounce_time;
-    long debounce_delay;
-    bool new_reading;
-    bool last_reading;
-    bool state;
+    long last_debounce_time;    /** Tiempo transcurrido desde el ultimo pulso. */
+    long debounce_delay;        /** Tiempo del antirrebote. */
+    bool new_reading;           /** Lectura actual. */
+    bool last_reading;          /** Ultima lectura realizada. */
+    bool state;                 /** Estado actual del boton. */
 
 }button_t;
 
@@ -28,6 +28,14 @@ typedef struct
 // ====================================================================================================
 // Public function definitions
 // ====================================================================================================
+/**
+ * @brief Se definen los parametros de los PushButtons.
+ * 
+ * @param[in, out] button                 Points to the Button's data structure.
+ * @param[in] pinF                        Pin donde se hace lectura del la señal.
+ * @param[in] last_debounce_time          Tiempo que se desea como comparativa.  
+ * @param[in] debounce_delay              El tiempo que deseamos para el antirebote.         
+ */
 static void button_init(button_t *button,uint8_t pinF)
 {
     button->pin = pinF;

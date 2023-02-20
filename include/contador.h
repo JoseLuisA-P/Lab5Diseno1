@@ -16,15 +16,15 @@ extern "C" {
 // ====================================================================================================
 typedef struct 
 {
-    button_t aumentar;
-    button_t disminuir;
-    led_t bit0;
-    led_t bit1;
-    led_t bit2;
-    led_t bit3;
+    button_t aumentar;    /** Entrada para aumentar el contador*/
+    button_t disminuir;   /** Entrada para disminuir el contador*/
+    led_t bit0;           /** Primer bit del contador binario*/
+    led_t bit1;           /** Segundo bit del contador binario*/
+    led_t bit2;           /** Tercer bit del contador binario*/
+    led_t bit3;           /** Cuarto bit del contador binario*/
     bool last_reading_up;
     bool last_reading_down;
-    uint8_t valor;
+    uint8_t valor;        /** El valor actual del contador*/
     
 }contador_t;
 
@@ -32,7 +32,17 @@ typedef struct
 // ====================================================================================================
 // Public function definitions
 // ====================================================================================================
-
+/**
+ * @brief Se definen los parametros del contador interno.
+ * 
+ * @param[in, out] contador               Points to the Contador's data structure.
+ * @param[in] aumentar                    Hace referencia al boton que aumenta el contador.
+ * @param[in] Disminuir                   Hace referencia al boton que disminuye el contador.
+ * @param[in] led0                        Hace referencia al primer led del contador.    
+ * @param[in] led1                        Hace referencia al segundo led del contador.   
+ * @param[in] led2                        Hace referencia al tercero led del contador.   
+ * @param[in] led3                        Hace referencia al cuarto led del contador.         
+ */
 static void contador_init
 (contador_t * contador,button_t boton_aumentar, button_t boton_disminuir,led_t led0,led_t led1,led_t led2,led_t led3)
 {

@@ -1,7 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+//Universidad del Valle de Guatemala                                        ///
+// Diseño e Innovacion en Ingenieria 1                                      ///
+// Laboratorio 5                                                            ///
+// Jose Luis Alvarez                                                        ///
+// Marco Duarte                                                             ///
+///////////////////////////////////////////////////////////////////////////////
+
+// Se incluyen las librerias necesarias para el funcionamiento del codigo.
 #include <Arduino.h>
 #include "led.h"
 #include "button.h"
 #include "contador.h"
+
+// Aqui definimos las variables llamando a las librerias de cada objeto.
 
 led_t led1;
 led_t led2;
@@ -17,6 +28,8 @@ contador_t contador2;
 
 bool flag_cambio = true;
 bool flag_contador = false;
+
+// Definimos los prototipos que se agregaran localmente en el codigo.
 
 void change_contadores();
 
@@ -44,6 +57,7 @@ void loop()
 
 }
 
+// Esta funcion es para poder realizar el cambio entre los contadores
 void change_contadores()
 {
 
