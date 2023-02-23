@@ -33,7 +33,8 @@ bool flag_contador = false;
 
 void change_contadores();
 
-void setup()
+void
+setup()
 {
   led_init(&led1,33);
   led_init(&led2,25);
@@ -49,7 +50,8 @@ void setup()
 
 }
 
-void loop()
+void
+loop()
 {
   change_contadores();
   if(flag_contador)contador_update_display(&contador1);
@@ -58,7 +60,8 @@ void loop()
 }
 
 // Esta funcion es para poder realizar el cambio entre los contadores
-void change_contadores()
+void
+change_contadores()
 {
 
   if(button_get_state(&boton3) & flag_cambio)
